@@ -1,0 +1,31 @@
+# Node
+node_modules/
+dist/
+
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.suo
+*.user
+
+# OS
+.DS_Store
+Thumbs.db
+
+# H2 Database
+data/
+
+# Logs
+*.log
+stdout*.log
+stderr*.log
+
+# Misc
+*.timestamp-*.mjs

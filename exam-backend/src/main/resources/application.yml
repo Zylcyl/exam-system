@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: exam-backend
+
+  # H2 嵌入式数据库（文件模式，数据文件随项目带走）
+  datasource:
+    url: jdbc:h2:file:./data/examdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: false
+
+  # 文件上传
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+
+  # SQL 初始化
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/schema.sql
+      data-locations: classpath:db/data.sql
+      continue-on-error: true
+
+# MyBatis-Plus
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# JWT
+jwt:
+  secret: ExamSystemSecretKey2026VeryLongAndSecureRandomStringForHS256
+  expiration: 86400000  # 24小时
+
+# 文件上传路径
+app:
+  upload-path: ./data/uploads/
+
+# 服务端口
+server:
+  port: 8080
